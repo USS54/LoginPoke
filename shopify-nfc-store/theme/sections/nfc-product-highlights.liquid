@@ -1,0 +1,238 @@
+{%- comment -%}
+  Produits phares.
+
+  Chaque bloc fonctionne dans les deux sens :
+  - si un produit est sélectionné, titre / prix / image / lien viennent du catalogue ;
+  - sinon on retombe sur les valeurs de secours (visuel placeholder + lien /products/<handle>),
+    ce qui permet à la page d'accueil de s'afficher correctement AVANT l'import des produits.
+{%- endcomment -%}
+
+<div class="nfc-products color-{{ section.settings.color_scheme }} gradient">
+  <div
+    class="page-width section-{{ section.id }}-padding"
+    style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+  >
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="nfc-products__head">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p>{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <ul class="nfc-products__grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign product = block.settings.product
+          assign has_product = false
+          if product != blank and product != empty
+            assign has_product = true
+          endif
+
+          if has_product
+            assign card_title = product.title
+            assign card_url = product.url
+            assign card_price = product.price | money
+            assign card_compare = ''
+            if product.compare_at_price > product.price
+              assign card_compare = product.compare_at_price | money
+            endif
+          else
+            assign card_title = block.settings.fallback_title
+            assign card_url = block.settings.fallback_url
+            assign card_price = block.settings.fallback_price
+            assign card_compare = block.settings.fallback_compare_price
+          endif
+        -%}
+
+        <li {{ block.shopify_attributes }}>
+          <article class="nfc-card">
+            <a class="nfc-card__media" href="{{ card_url }}" tabindex="-1" aria-hidden="true">
+              {%- if has_product and product.featured_media != blank -%}
+                {{
+                  product.featured_media
+                  | image_url: width: 800
+                  | image_tag: loading: 'lazy', widths: '300, 500, 800', alt: product.featured_media.alt | escape
+                }}
+              {%- else -%}
+                <img
+                  src="{{ block.settings.fallback_image | default: 'nfc-placeholder-plaque.svg' | asset_url }}"
+                  alt=""
+                  width="1200"
+                  height="1200"
+                  loading="lazy"
+                >
+              {%- endif -%}
+
+              {%- if block.settings.badge != blank -%}
+                <span class="nfc-card__badge nfc-card__badge--{{ block.settings.badge_style }}">
+                  {{- block.settings.badge -}}
+                </span>
+              {%- endif -%}
+            </a>
+
+            <div class="nfc-card__body">
+              <h3 class="nfc-card__title">
+                <a href="{{ card_url }}">{{ card_title }}</a>
+              </h3>
+
+              {%- if block.settings.text != blank -%}
+                <p class="nfc-card__text">{{ block.settings.text }}</p>
+              {%- endif -%}
+
+              <p class="nfc-card__prices">
+                <span class="nfc-card__price">{{ card_price }}</span>
+                {%- if card_compare != blank -%}
+                  <s class="nfc-card__compare">{{ card_compare }}</s>
+                {%- endif -%}
+              </p>
+
+              <a href="{{ card_url }}" class="button button--primary">
+                {{- block.settings.button_label | default: 'Voir le produit' -}}
+              </a>
+            </div>
+          </article>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Produits phares NFC",
+  "tag": "section",
+  "class": "nfc-products-section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Nos produits"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Taille du titre",
+      "options": [
+        { "value": "h2", "label": "Petit" },
+        { "value": "h1", "label": "Moyen" },
+        { "value": "h0", "label": "Grand" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sous-titre"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Jeu de couleurs",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge intérieure haute",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge intérieure basse",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Carte produit",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Produit",
+          "info": "Une fois les produits importés, sélectionnez-les ici : prix et image seront pris dans le catalogue."
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge",
+          "default": "Meilleure vente"
+        },
+        {
+          "type": "select",
+          "id": "badge_style",
+          "label": "Couleur du badge",
+          "options": [
+            { "value": "best", "label": "Bleu" },
+            { "value": "new", "label": "Gris foncé" },
+            { "value": "hot", "label": "Vert" }
+          ],
+          "default": "best"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Accroche"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Libellé du bouton",
+          "default": "Voir le produit"
+        },
+        {
+          "type": "text",
+          "id": "fallback_title",
+          "label": "Secours — titre",
+          "default": "Plaque Avis Google NFC"
+        },
+        {
+          "type": "text",
+          "id": "fallback_price",
+          "label": "Secours — prix",
+          "default": "29,90 €"
+        },
+        {
+          "type": "text",
+          "id": "fallback_compare_price",
+          "label": "Secours — prix barré"
+        },
+        {
+          "type": "url",
+          "id": "fallback_url",
+          "label": "Secours — lien"
+        },
+        {
+          "type": "text",
+          "id": "fallback_image",
+          "label": "Secours — fichier image du thème",
+          "default": "nfc-placeholder-plaque.svg",
+          "info": "Nom d'un fichier présent dans assets/."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Produits phares NFC",
+      "blocks": [{ "type": "card" }, { "type": "card" }, { "type": "card" }]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,135 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "show_line_separator": false,
+        "show_social": false,
+        "auto_rotate": true,
+        "change_slides_speed": 6,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      },
+      "blocks": {
+        "a0": {
+          "type": "announcement",
+          "settings": {
+            "text": "📦 Livraison offerte dès 3 plaques — expédition sous 24-48 h",
+            "link": "/collections/all"
+          }
+        },
+        "a1": {
+          "type": "announcement",
+          "settings": {
+            "text": "✅ Sans abonnement — vous payez une fois, le produit est à vous",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "a0",
+        "a1"
+      ]
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "logo_position": "middle-left",
+        "menu": "main-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "quick-nav": {
+      "type": "nfc-quick-nav",
+      "settings": {
+        "color_scheme": "scheme-1"
+      },
+      "blocks": {
+        "l1": {
+          "type": "link",
+          "settings": {
+            "label": "Tous les produits",
+            "link": "/collections/all"
+          }
+        },
+        "l2": {
+          "type": "link",
+          "settings": {
+            "label": "Plaque Avis Google",
+            "link": "/products/plaques-avis-google-nfc"
+          }
+        },
+        "l3": {
+          "type": "link",
+          "settings": {
+            "label": "Carte de visite",
+            "link": "/products/carte-de-visite-nfc"
+          }
+        },
+        "l4": {
+          "type": "link",
+          "settings": {
+            "label": "Badge NFC",
+            "link": "/products/badge-nfc"
+          }
+        },
+        "l5": {
+          "type": "link",
+          "settings": {
+            "label": "Comment ça marche",
+            "link": "/pages/comment-ca-marche"
+          }
+        },
+        "l6": {
+          "type": "link",
+          "settings": {
+            "label": "Pourquoi nous choisir",
+            "link": "/pages/pourquoi-nous-choisir"
+          }
+        },
+        "l7": {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "link": "/pages/faq"
+          }
+        },
+        "l8": {
+          "type": "link",
+          "settings": {
+            "label": "Contact",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5",
+        "l6",
+        "l7",
+        "l8"
+      ]
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "quick-nav"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "h": {
+          "type": "heading",
+          "settings": {
+            "heading": "Soyez prévenu du lancement",
+            "heading_size": "h1"
+          }
+        },
+        "p": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Laissez votre e-mail : vous serez parmi les premiers à activer votre mini-site NFC, et vous recevrez le tarif de lancement.</p>"
+          }
+        },
+        "f": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "h",
+        "p",
+        "f"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "trust": {
+      "type": "nfc-trust-badges",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "✅",
+            "text": "Sans abonnement"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "⚡",
+            "text": "Installé en 10 secondes"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "📦",
+            "text": "Livraison offerte dès 3 plaques"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    }
+  },
+  "order": [
+    "main",
+    "newsletter",
+    "trust"
+  ]
+}

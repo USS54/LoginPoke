@@ -1,0 +1,126 @@
+{%- comment -%}
+  Témoignages clients.
+{%- endcomment -%}
+
+<div class="nfc-testimonials color-{{ section.settings.color_scheme }} gradient">
+  <div
+    class="page-width"
+    style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+  >
+    {%- if section.settings.heading != blank -%}
+      <div class="nfc-products__head">
+        <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+        {%- if section.settings.subheading != blank -%}
+          <p>{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <ul class="nfc-testimonials__grid">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <figure class="nfc-quote">
+            {%- if block.settings.show_stars -%}
+              <div class="nfc-quote__stars" aria-label="5 étoiles sur 5">★★★★★</div>
+            {%- endif -%}
+            <blockquote class="nfc-quote__text">{{ block.settings.quote }}</blockquote>
+            {%- if block.settings.author != blank -%}
+              <figcaption class="nfc-quote__author">— {{ block.settings.author }}</figcaption>
+            {%- endif -%}
+          </figure>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Témoignages NFC",
+  "tag": "section",
+  "class": "nfc-testimonials-section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Ils l'utilisent tous les jours"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Taille du titre",
+      "options": [
+        { "value": "h2", "label": "Petit" },
+        { "value": "h1", "label": "Moyen" },
+        { "value": "h0", "label": "Grand" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sous-titre"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Jeu de couleurs",
+      "default": "scheme-2"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge intérieure haute",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge intérieure basse",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Témoignage",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Citation",
+          "default": "En 2 semaines, on a récolté 47 avis Google."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Auteur",
+          "default": "Sophie, gérante de salon de coiffure à Lyon"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_stars",
+          "label": "Afficher 5 étoiles",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Témoignages NFC",
+      "blocks": [{ "type": "quote" }, { "type": "quote" }]
+    }
+  ]
+}
+{% endschema %}

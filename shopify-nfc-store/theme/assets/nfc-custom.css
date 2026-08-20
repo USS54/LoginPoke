@@ -1,0 +1,547 @@
+/*
+  NFC Store — surcouche de marque appliquée par-dessus Dawn.
+  Chargée depuis layout/theme.liquid, juste après base.css.
+
+  Typographie : Poppins (titres) + Inter (corps), servies par Google Fonts.
+  Pour repasser sur une police native Shopify (zéro requête externe),
+  supprimez le @import ci-dessous et les deux --font-*-family qui suivent.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+
+:root {
+  --nfc-primary: #2563eb;
+  --nfc-primary-dark: #1d4ed8;
+  --nfc-secondary: #1e293b;
+  --nfc-accent: #10b981;
+  --nfc-surface: #f8fafc;
+  --nfc-border: rgba(30, 41, 59, 0.12);
+  --nfc-radius: 14px;
+  --nfc-shadow: 0 4px 16px rgba(30, 41, 59, 0.08);
+  --nfc-shadow-lg: 0 12px 32px rgba(30, 41, 59, 0.12);
+}
+
+body,
+.color-scheme-1,
+.color-scheme-2,
+.color-scheme-3,
+.color-scheme-4,
+.color-scheme-5 {
+  --font-body-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-heading-family: 'Poppins', 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-heading-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+.h0,
+.h1,
+.h2,
+.h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+}
+
+/* ---------- Boutons ---------- */
+.button,
+.shopify-challenge__button,
+.customer button {
+  font-weight: 600;
+  letter-spacing: 0;
+  min-height: 3rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button:not([disabled]):hover {
+  transform: translateY(-1px);
+  box-shadow: var(--nfc-shadow);
+}
+
+/* ---------- Bandeau de réassurance (nfc-trust-badges) ---------- */
+.nfc-trust {
+  border-block: 1px solid var(--nfc-border);
+}
+
+.nfc-trust__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nfc-trust__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  text-align: left;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.nfc-trust__icon {
+  flex: 0 0 auto;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.nfc-trust__label {
+  font-weight: 500;
+}
+
+@media screen and (min-width: 750px) {
+  .nfc-trust__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+  }
+}
+
+/* ---------- Barre de navigation rapide (nfc-quick-nav) ---------- */
+.nfc-quicknav {
+  border-bottom: 1px solid var(--nfc-border);
+}
+
+.nfc-quicknav__scroller {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  margin: 0;
+  list-style: none;
+  scrollbar-width: none;
+}
+
+.nfc-quicknav__scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.nfc-quicknav__link {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--nfc-border);
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: rgb(var(--color-foreground));
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.nfc-quicknav__link:hover,
+.nfc-quicknav__link:focus-visible {
+  background-color: var(--nfc-primary);
+  border-color: var(--nfc-primary);
+  color: #fff;
+}
+
+@media screen and (min-width: 990px) {
+  .nfc-quicknav__scroller {
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}
+
+/* ---------- Hero ---------- */
+.nfc-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 62vh;
+  overflow: hidden;
+  background-color: var(--nfc-secondary);
+}
+
+.nfc-hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.nfc-hero__media img,
+.nfc-hero__media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nfc-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(15, 23, 42, 0.88) 0%, rgba(37, 99, 235, 0.62) 100%);
+}
+
+.nfc-hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 6rem 0;
+  color: #fff;
+}
+
+.nfc-hero__content {
+  max-width: 62rem;
+}
+
+.nfc-hero__eyebrow {
+  display: inline-block;
+  margin: 0 0 1.6rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(4px);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nfc-hero__heading {
+  margin: 0 0 1.8rem;
+  color: #fff;
+  font-size: 3.4rem;
+}
+
+.nfc-hero__text {
+  margin: 0 0 2.8rem;
+  font-size: 1.7rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.nfc-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.nfc-hero .button--primary {
+  background-color: var(--nfc-accent);
+  border-color: var(--nfc-accent);
+  color: #fff;
+  box-shadow: var(--nfc-shadow-lg);
+}
+
+.nfc-hero .button--secondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: #fff;
+}
+
+.nfc-hero__points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2.4rem;
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media screen and (min-width: 750px) {
+  .nfc-hero {
+    min-height: 72vh;
+  }
+
+  .nfc-hero__heading {
+    font-size: 5.2rem;
+  }
+
+  .nfc-hero__text {
+    font-size: 1.9rem;
+  }
+
+  .nfc-hero__inner {
+    padding: 9rem 0;
+  }
+}
+
+/* ---------- Cartes produits phares (nfc-product-highlights) ---------- */
+.nfc-products__head {
+  text-align: center;
+  max-width: 66rem;
+  margin: 0 auto 4rem;
+}
+
+.nfc-products__head p {
+  margin: 1.2rem 0 0;
+  opacity: 0.8;
+}
+
+.nfc-products__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 750px) {
+  .nfc-products__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.nfc-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--nfc-border);
+  border-radius: var(--nfc-radius);
+  background: #fff;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.nfc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--nfc-shadow-lg);
+}
+
+.nfc-card__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  background: var(--nfc-surface);
+}
+
+.nfc-card__media img,
+.nfc-card__media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nfc-card__badge {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  background: var(--nfc-accent);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.nfc-card__badge--best {
+  background: var(--nfc-primary);
+}
+
+.nfc-card__badge--new {
+  background: var(--nfc-secondary);
+}
+
+.nfc-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 2rem;
+}
+
+.nfc-card__title {
+  margin: 0 0 0.8rem;
+  font-size: 1.9rem;
+}
+
+.nfc-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nfc-card__text {
+  margin: 0 0 1.6rem;
+  font-size: 1.5rem;
+  line-height: 1.55;
+  opacity: 0.82;
+}
+
+.nfc-card__prices {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-top: auto;
+  margin-bottom: 1.6rem;
+}
+
+.nfc-card__price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--nfc-secondary);
+}
+
+.nfc-card__compare {
+  font-size: 1.5rem;
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+.nfc-card .button {
+  width: 100%;
+}
+
+/* ---------- Témoignages ---------- */
+.nfc-testimonials__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 750px) {
+  .nfc-testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.nfc-quote {
+  height: 100%;
+  padding: 2.8rem;
+  border-radius: var(--nfc-radius);
+  background: #fff;
+  border: 1px solid var(--nfc-border);
+  box-shadow: var(--nfc-shadow);
+}
+
+.nfc-quote__stars {
+  color: #f59e0b;
+  font-size: 1.6rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.2rem;
+}
+
+.nfc-quote__text {
+  margin: 0 0 1.8rem;
+  font-size: 1.8rem;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.nfc-quote__author {
+  margin: 0;
+  font-size: 1.4rem;
+  opacity: 0.75;
+}
+
+/* ---------- Arguments / étapes (nfc-features) ---------- */
+.nfc-features__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 750px) {
+  .nfc-features__grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nfc-features__grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nfc-features__grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .nfc-features__grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.nfc-feature {
+  padding: 2.6rem;
+  border-radius: var(--nfc-radius);
+  border: 1px solid var(--nfc-border);
+  background: #fff;
+}
+
+.nfc-feature__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1.6rem;
+  border-radius: 50%;
+  background: var(--nfc-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+
+.nfc-feature__icon {
+  display: block;
+  width: 4.8rem;
+  height: 4.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.nfc-feature__icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.nfc-feature__title {
+  margin: 0 0 0.8rem;
+  font-size: 1.9rem;
+}
+
+.nfc-feature__text {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  opacity: 0.82;
+}
+
+.nfc-feature__text > *:last-child {
+  margin-bottom: 0;
+}
+
+.nfc-features__cta {
+  margin-top: 3.2rem;
+  text-align: center;
+}
+
+/* ---------- Page produit : liste de specs ---------- */
+.product__description .nfc-specs {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.6rem 0;
+  font-size: 1.4rem;
+}
+
+.product__description .nfc-specs th,
+.product__description .nfc-specs td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--nfc-border);
+  text-align: left;
+}
+
+.product__description .nfc-specs th {
+  width: 45%;
+  font-weight: 600;
+}
+
+/* ---------- Contenu des pages statiques ---------- */
+.nfc-page-content h2 {
+  margin-top: 3.2rem;
+}
+
+.nfc-page-content ul {
+  line-height: 1.7;
+}
