@@ -1,0 +1,84 @@
+{%- comment -%}
+  Bandeau de réassurance : 3 arguments courts sous le hero.
+{%- endcomment -%}
+
+<div class="nfc-trust color-{{ section.settings.color_scheme }} gradient">
+  <div
+    class="page-width"
+    style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+  >
+    <ul class="nfc-trust__list">
+      {%- for block in section.blocks -%}
+        <li class="nfc-trust__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.icon != blank -%}
+            <span class="nfc-trust__icon" aria-hidden="true">{{ block.settings.icon }}</span>
+          {%- endif -%}
+          <span class="nfc-trust__label">{{ block.settings.text }}</span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Bandeau réassurance",
+  "tag": "section",
+  "class": "nfc-trust-section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Jeu de couleurs",
+      "default": "scheme-2"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge intérieure haute",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge intérieure basse",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Argument",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Emoji / icône",
+          "default": "✅"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "Sans abonnement"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Bandeau réassurance",
+      "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }]
+    }
+  ]
+}
+{% endschema %}

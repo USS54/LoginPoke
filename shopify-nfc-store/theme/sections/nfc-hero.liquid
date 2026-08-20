@@ -1,0 +1,169 @@
+{%- comment -%}
+  Hero de la page d'accueil.
+  Affiche par défaut le visuel placeholder livré dans le thème (assets/nfc-placeholder-hero.svg).
+  Pour le remplacer : Personnaliser > section Hero NFC > Image de fond.
+{%- endcomment -%}
+
+<section class="nfc-hero color-{{ section.settings.color_scheme }}">
+  <div class="nfc-hero__media">
+    {%- if section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 1920
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          sizes: '100vw',
+          widths: '640, 960, 1280, 1600, 1920',
+          alt: section.settings.image.alt | default: section.settings.heading | escape
+      }}
+    {%- else -%}
+      <img
+        src="{{ 'nfc-placeholder-hero.svg' | asset_url }}"
+        alt=""
+        width="1920"
+        height="1080"
+        loading="eager"
+        fetchpriority="high"
+      >
+    {%- endif -%}
+  </div>
+  <div class="nfc-hero__overlay" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }}"></div>
+
+  <div class="nfc-hero__inner">
+    <div class="page-width">
+      <div class="nfc-hero__content">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="nfc-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h1 class="nfc-hero__heading">{{ section.settings.heading }}</h1>
+        {%- endif -%}
+
+        {%- if section.settings.subheading != blank -%}
+          <div class="nfc-hero__text rte">{{ section.settings.subheading }}</div>
+        {%- endif -%}
+
+        <div class="nfc-hero__actions">
+          {%- if section.settings.button_label != blank -%}
+            <a
+              href="{{ section.settings.button_link | default: routes.all_products_collection_url }}"
+              class="button button--primary"
+            >
+              {{- section.settings.button_label -}}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.button_label_2 != blank -%}
+            <a
+              href="{{ section.settings.button_link_2 | default: routes.all_products_collection_url }}"
+              class="button button--secondary"
+            >
+              {{- section.settings.button_label_2 -}}
+            </a>
+          {%- endif -%}
+        </div>
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="nfc-hero__points">
+            {%- for block in section.blocks -%}
+              <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero NFC",
+  "tag": "section",
+  "class": "nfc-hero-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image de fond (1920 x 1080)",
+      "info": "Vide = visuel placeholder livré avec le thème."
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacité du voile",
+      "default": 85
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Sur-titre",
+      "default": "Plaques • Cartes • Badges NFC"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Récoltez des avis Google sans demander."
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Sous-titre",
+      "default": "<p>Vos clients sont satisfaits mais n'écrivent jamais d'avis.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Bouton principal",
+      "default": "Voir les plaques Avis Google"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton principal"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "label": "Bouton secondaire"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "Lien du bouton secondaire"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Jeu de couleurs",
+      "default": "scheme-3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point de réassurance",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "Sans abonnement"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Hero NFC",
+      "blocks": [{ "type": "point" }, { "type": "point" }, { "type": "point" }]
+    }
+  ]
+}
+{% endschema %}

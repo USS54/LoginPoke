@@ -1,0 +1,389 @@
+{
+  "sections": {
+    "hero": {
+      "type": "nfc-hero",
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "text": "✅ Sans abonnement"
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "text": "⚡ Installé en 10 secondes"
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "text": "📦 Livraison offerte dès 3 plaques"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {
+        "overlay_opacity": 85,
+        "eyebrow": "Plaques • Cartes • Badges NFC",
+        "heading": "Récoltez des avis Google sans demander.",
+        "subheading": "<p>Vos clients sont satisfaits mais n'écrivent jamais d'avis. Normal : c'est trop compliqué. Avec nos plaques NFC, approcher le téléphone ouvre directement votre fiche Google. L'avis est publié en 10 secondes — avant que le client franchisse la porte.</p>",
+        "button_label": "👉 Voir les plaques Avis Google",
+        "button_link": "/products/plaques-avis-google-nfc",
+        "button_label_2": "Voir tous les produits",
+        "button_link_2": "/collections/all",
+        "color_scheme": "scheme-3"
+      }
+    },
+    "trust": {
+      "type": "nfc-trust-badges",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "✅",
+            "text": "Sans abonnement"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "⚡",
+            "text": "Installé en 10 secondes"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "📦",
+            "text": "Livraison offerte dès 3 plaques"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "steps": {
+      "type": "nfc-features",
+      "blocks": {
+        "s1": {
+          "type": "item",
+          "settings": {
+            "title": "Choisissez votre action",
+            "text": "<p>Avis Google, réseaux sociaux ou mini-site. Chaque produit = une mission claire.</p>"
+          }
+        },
+        "s2": {
+          "type": "item",
+          "settings": {
+            "title": "Posez, collez ou distribuez",
+            "text": "<p>Plaque sur le comptoir, carte en main, badge sur vous. 10 secondes et c'est prêt.</p>"
+          }
+        },
+        "s3": {
+          "type": "item",
+          "settings": {
+            "title": "Vos clients agissent",
+            "text": "<p>Un tap ou un scan. L'action se fait sur place, en quelques secondes. Vous suivez les résultats sur votre tableau de bord.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {
+        "heading": "Comment ça marche",
+        "heading_size": "h1",
+        "subheading": "Trois étapes, aucune compétence technique requise.",
+        "marker": "number",
+        "columns": "3",
+        "color_scheme": "scheme-1",
+        "padding_top": 64,
+        "padding_bottom": 48
+      }
+    },
+    "why": {
+      "type": "nfc-features",
+      "blocks": {
+        "w1": {
+          "type": "item",
+          "settings": {
+            "icon": "nfc-icon-no-subscription.svg",
+            "title": "Sans abonnement",
+            "text": "<p>Pas d'abonnement, pas de frais cachés. Vous payez une fois, le produit est à vous.</p>"
+          }
+        },
+        "w2": {
+          "type": "item",
+          "settings": {
+            "icon": "nfc-icon-qr.svg",
+            "title": "NFC + QR code",
+            "text": "<p>Double technologie sur chaque support. Le tap pour les smartphones récents, le QR pour tous les autres.</p>"
+          }
+        },
+        "w3": {
+          "type": "item",
+          "settings": {
+            "icon": "nfc-icon-dashboard.svg",
+            "title": "Tableau de bord inclus",
+            "text": "<p>Scans, clics, jours d'activité. Vous voyez ce qui marche, en temps réel.</p>"
+          }
+        },
+        "w4": {
+          "type": "item",
+          "settings": {
+            "icon": "nfc-icon-europe.svg",
+            "title": "Fabriqué en Europe",
+            "text": "<p>Matériaux premium, livraison rapide, support réactif.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "w1",
+        "w2",
+        "w3",
+        "w4"
+      ],
+      "settings": {
+        "heading": "Pourquoi nous choisir",
+        "heading_size": "h1",
+        "subheading": "",
+        "marker": "icon",
+        "columns": "4",
+        "color_scheme": "scheme-2",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "products": {
+      "type": "nfc-product-highlights",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "badge": "Meilleure vente",
+            "badge_style": "best",
+            "text": "Collez-la sur le comptoir : vos clients laissent un avis Google en 1 tap.",
+            "button_label": "Voir la plaque",
+            "fallback_title": "Plaque Avis Google NFC",
+            "fallback_price": "29,90 €",
+            "fallback_compare_price": "39,90 €",
+            "fallback_url": "/products/plaques-avis-google-nfc",
+            "fallback_image": "nfc-placeholder-plaque.svg"
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "badge": "Nouveau",
+            "badge_style": "new",
+            "text": "Menu, coordonnées, portfolio : tout votre mini-site dans une carte.",
+            "button_label": "Voir la carte",
+            "fallback_title": "Carte de Visite NFC",
+            "fallback_price": "24,90 €",
+            "fallback_compare_price": "",
+            "fallback_url": "/products/carte-de-visite-nfc",
+            "fallback_image": "nfc-placeholder-carte.svg"
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "badge": "Populaire",
+            "badge_style": "hot",
+            "text": "À porter ou à fixer. Votre lien vous suit partout.",
+            "button_label": "Voir le badge",
+            "fallback_title": "Badge NFC",
+            "fallback_price": "19,90 €",
+            "fallback_compare_price": "",
+            "fallback_url": "/products/badge-nfc",
+            "fallback_image": "nfc-placeholder-badge.svg"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "heading": "Produits phares",
+        "heading_size": "h1",
+        "subheading": "Trois supports, une seule technologie. Choisissez celui qui colle à votre usage.",
+        "color_scheme": "scheme-1",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "testimonials": {
+      "type": "nfc-testimonials",
+      "blocks": {
+        "q1": {
+          "type": "quote",
+          "settings": {
+            "quote": "En 2 semaines, on a récolté 47 avis Google. Nos clients adorent la simplicité.",
+            "author": "Sophie, gérante de salon de coiffure à Lyon",
+            "show_stars": true
+          }
+        },
+        "q2": {
+          "type": "quote",
+          "settings": {
+            "quote": "Plus besoin de demander aux clients. Ils scannent et c'est fait.",
+            "author": "Marc, propriétaire de restaurant à Bordeaux",
+            "show_stars": true
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2"
+      ],
+      "settings": {
+        "heading": "Ils l'utilisent tous les jours",
+        "heading_size": "h1",
+        "subheading": "",
+        "color_scheme": "scheme-2",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "faq1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "C'est quoi concrètement ?",
+            "icon": "question_mark",
+            "row_content": "<p>Des supports physiques (plaques, cartes, badges) avec une puce NFC et un QR code intégré. Vous les programmez une fois vers l'action de votre choix : votre fiche Google, votre Instagram, votre menu, votre mini-site. Ensuite, le client approche son téléphone ou scanne le QR code, et il arrive directement au bon endroit. Aucune application à installer, ni pour vous, ni pour lui.</p>",
+            "page": ""
+          }
+        },
+        "faq2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Ça marche avec tous les téléphones ?",
+            "icon": "chat_bubble",
+            "row_content": "<p>Oui. Le tap NFC fonctionne sur iPhone 7+ et tous les Android récents (4.4+), sans application. Pour les téléphones plus anciens ou dont le NFC est désactivé, le QR code imprimé sur chaque support prend le relais : il fonctionne avec l'appareil photo de n'importe quel smartphone.</p>",
+            "page": ""
+          }
+        },
+        "faq3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Il y a un abonnement ?",
+            "icon": "price_tag",
+            "row_content": "<p>Non. Sans abonnement. Vous payez une fois, le tableau de bord et les stats sont inclus.</p>",
+            "page": ""
+          }
+        },
+        "faq4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Quelle différence entre plaque, carte et badge ?",
+            "icon": "box",
+            "row_content": "<p><strong>Plaque</strong> : se colle sur comptoir ou vitrine. Fixe, visible en permanence, idéale pour les avis Google.<br><strong>Carte</strong> : format carte de visite, se glisse dans une poche et se tend en main. Idéale pour partager un mini-site, un menu ou vos coordonnées.<br><strong>Badge</strong> : se porte sur soi ou se fixe où vous voulez. Même technologie, usage mobile.</p>",
+            "page": ""
+          }
+        },
+        "faq5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Ça marche pour mon type de commerce ?",
+            "icon": "map_pin",
+            "row_content": "<p>Si vous avez des clients et une présence en ligne, oui. Restaurants, salons de coiffure et instituts, garages, boutiques, artisans, professions libérales, agents immobiliers, food trucks, cabinets médicaux : le principe reste le même, seule l'action derrière le tap change.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq1",
+        "faq2",
+        "faq3",
+        "faq4",
+        "faq5"
+      ],
+      "settings": {
+        "caption": "FAQ",
+        "heading": "Vos questions, nos réponses",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "container_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "cta": {
+      "type": "rich-text",
+      "blocks": {
+        "h": {
+          "type": "heading",
+          "settings": {
+            "heading": "Vos clients sont devant vous. Transformez ça en résultat.",
+            "heading_size": "h1"
+          }
+        },
+        "t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sans abonnement. Installé en 10 secondes.</p>"
+          }
+        },
+        "b": {
+          "type": "button",
+          "settings": {
+            "button_label": "🛒 Commander maintenant",
+            "button_link": "/collections/all",
+            "button_style_secondary": false,
+            "button_label_2": "Une question ?",
+            "button_link_2": "/pages/contact",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "h",
+        "t",
+        "b"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "steps",
+    "why",
+    "products",
+    "testimonials",
+    "faq",
+    "cta"
+  ]
+}

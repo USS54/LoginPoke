@@ -1,0 +1,65 @@
+{%- comment -%}
+  Barre de navigation rapide, placée juste sous l'en-tête.
+
+  Elle garantit une navigation fonctionnelle même si le menu « main-menu » de la
+  boutique n'a pas encore été configuré dans l'admin. Les liens sont écrits en dur
+  dans le template, ils ne dépendent d'aucun link list.
+{%- endcomment -%}
+
+{%- if section.blocks.size > 0 -%}
+  <nav class="nfc-quicknav color-{{ section.settings.color_scheme }} gradient" aria-label="Navigation rapide">
+    <div class="page-width">
+      <ul class="nfc-quicknav__scroller">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>
+            <a class="nfc-quicknav__link" href="{{ block.settings.link | default: routes.root_url }}">
+              {{- block.settings.label -}}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </nav>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Navigation rapide",
+  "tag": "section",
+  "class": "nfc-quicknav-section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Jeu de couleurs",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Lien",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Libellé",
+          "default": "Nouveau lien"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Destination"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Navigation rapide",
+      "blocks": [{ "type": "link" }, { "type": "link" }, { "type": "link" }]
+    }
+  ]
+}
+{% endschema %}

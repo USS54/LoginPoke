@@ -1,0 +1,69 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "brand": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true
+          }
+        },
+        "shop": {
+          "type": "text",
+          "settings": {
+            "heading": "Boutique",
+            "subtext": "<p><a href=\"/products/plaques-avis-google-nfc\">Plaque Avis Google NFC</a><br><a href=\"/products/carte-de-visite-nfc\">Carte de Visite NFC</a><br><a href=\"/products/badge-nfc\">Badge NFC</a><br><a href=\"/collections/all\">Tous les produits</a></p>"
+          }
+        },
+        "info": {
+          "type": "text",
+          "settings": {
+            "heading": "Informations",
+            "subtext": "<p><a href=\"/pages/comment-ca-marche\">Comment ça marche</a><br><a href=\"/pages/pourquoi-nous-choisir\">Pourquoi nous choisir</a><br><a href=\"/pages/faq\">FAQ</a><br><a href=\"/pages/mini-site-nfc\">Mini-site NFC (bientôt)</a></p>"
+          }
+        },
+        "legal": {
+          "type": "text",
+          "settings": {
+            "heading": "Aide & légal",
+            "subtext": "<p><a href=\"/pages/contact\">Contact</a><br><a href=\"/pages/cgv\">Conditions générales de vente</a><br><a href=\"/pages/confidentialite\">Politique de confidentialité</a></p>"
+          }
+        },
+        "contact": {
+          "type": "text",
+          "settings": {
+            "heading": "Nous contacter",
+            "subtext": "<p>[NOM_MARQUE]<br><a href=\"mailto:contact@exemple.fr\">contact@exemple.fr</a><br><a href=\"tel:+33000000000\">+33 X XX XX XX XX</a><br>Du lundi au vendredi, 9 h – 18 h</p>"
+          }
+        }
+      },
+      "block_order": [
+        "brand",
+        "shop",
+        "info",
+        "legal",
+        "contact"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "newsletter_enable": true,
+        "newsletter_heading": "Recevez nos conseils pour récolter plus d'avis",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 48,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

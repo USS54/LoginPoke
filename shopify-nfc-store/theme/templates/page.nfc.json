@@ -1,0 +1,94 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    },
+    "trust": {
+      "type": "nfc-trust-badges",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "✅",
+            "text": "Sans abonnement"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "⚡",
+            "text": "Installé en 10 secondes"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "📦",
+            "text": "Livraison offerte dès 3 plaques"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "cta": {
+      "type": "rich-text",
+      "blocks": {
+        "h": {
+          "type": "heading",
+          "settings": {
+            "heading": "Vos clients sont devant vous. Transformez ça en résultat.",
+            "heading_size": "h1"
+          }
+        },
+        "t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sans abonnement. Installé en 10 secondes.</p>"
+          }
+        },
+        "b": {
+          "type": "button",
+          "settings": {
+            "button_label": "🛒 Commander maintenant",
+            "button_link": "/collections/all",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "h",
+        "t",
+        "b"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    }
+  },
+  "order": [
+    "main",
+    "trust",
+    "cta"
+  ]
+}

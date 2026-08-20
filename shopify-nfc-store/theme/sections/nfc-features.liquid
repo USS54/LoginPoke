@@ -1,0 +1,175 @@
+{%- comment -%}
+  Grille d'arguments, utilisée deux fois sur la page d'accueil :
+  - « Comment ça marche » avec des pastilles numérotées ;
+  - « Pourquoi nous choisir » avec les icônes SVG livrées dans assets/.
+{%- endcomment -%}
+
+<div class="nfc-features color-{{ section.settings.color_scheme }} gradient">
+  <div
+    class="page-width"
+    style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+  >
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="nfc-products__head">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p>{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <ul class="nfc-features__grid nfc-features__grid--{{ section.settings.columns }}">
+      {%- for block in section.blocks -%}
+        <li class="nfc-feature" {{ block.shopify_attributes }}>
+          {%- if section.settings.marker == 'number' -%}
+            <span class="nfc-feature__number" aria-hidden="true">{{ forloop.index }}</span>
+          {%- elsif block.settings.icon != blank -%}
+            <span class="nfc-feature__icon">
+              <img src="{{ block.settings.icon | asset_url }}" alt="" width="64" height="64" loading="lazy">
+            </span>
+          {%- endif -%}
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="nfc-feature__title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <div class="nfc-feature__text rte">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="nfc-features__cta">
+        <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="button">
+          {{- section.settings.button_label -}}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Arguments NFC",
+  "tag": "section",
+  "class": "nfc-features-section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Comment ça marche"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Taille du titre",
+      "options": [
+        { "value": "h2", "label": "Petit" },
+        { "value": "h1", "label": "Moyen" },
+        { "value": "h0", "label": "Grand" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sous-titre"
+    },
+    {
+      "type": "select",
+      "id": "marker",
+      "label": "Puce des blocs",
+      "options": [
+        { "value": "number", "label": "Numéro (1, 2, 3)" },
+        { "value": "icon", "label": "Icône" }
+      ],
+      "default": "number"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Colonnes (ordinateur)",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Bouton (optionnel)"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Jeu de couleurs",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge intérieure haute",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge intérieure basse",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Argument",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Fichier icône du thème",
+          "default": "nfc-icon-nfc.svg",
+          "info": "Nom d'un fichier SVG présent dans assets/ (utilisé seulement si la puce est réglée sur « Icône »)."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Titre de l'argument"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Texte",
+          "default": "<p>Décrivez l'argument en une phrase.</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Arguments NFC",
+      "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }]
+    }
+  ]
+}
+{% endschema %}
